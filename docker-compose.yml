@@ -26,3 +26,10 @@ services:
         volumes:
             - /usr/app/node-modules
             - ./client:/usr/app
+    worker:
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./worker
+        volumes:
+            - /usr/app/node-modules
+            - ./worker:/usr/app
