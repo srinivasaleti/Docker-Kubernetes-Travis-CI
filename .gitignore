@@ -1,0 +1,4 @@
+*/node_module/
+server/node_modules/
+client/node_modules/
+worker/node_modules/
