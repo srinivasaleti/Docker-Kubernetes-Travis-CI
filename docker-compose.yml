@@ -4,7 +4,7 @@ services:
         image: 'postgres:latest'
     redis:
         image: 'redis:latest'
-    server:
+    api:
         build:
             dockerfile: Dockerfile.dev
             context: ./server
@@ -24,3 +24,9 @@ services:
         build:
             dockerfile: Dockerfile.dev
             context: ./worker
+    nginx:
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./nginx
+        ports:
+            - '8888:80'
