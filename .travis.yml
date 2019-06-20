@@ -1,0 +1,13 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t srinivra/react-test -f ./client/Dockerfile.dev ./client
+script:
+  - docker run srinivra/react-test npm test -- --coverage
+
+after_success:
+  - docker build -t srinivra/multi-client ./client
+  - docker build -t srinivra/multi-nginx ./nginx
+  - docker build -t srinivra/multi-server ./server
+  - docker build -t srinivra/multi-client ./client
