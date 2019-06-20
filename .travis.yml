@@ -11,3 +11,8 @@ after_success:
   - docker build -t srinivra/multi-nginx ./nginx
   - docker build -t srinivra/multi-server ./server
   - docker build -t srinivra/multi-worker ./worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push srinivra/multi-client
+  - docker push srinivra/multi-nginx
+  - docker push srinivra/multi-server
+  - docker push srinivra/multi-worker
