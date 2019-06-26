@@ -35,13 +35,15 @@ class Fib extends Component {
   };
 
   renderSeenIndexes() {
-    return this.state.seenIndexes.map(({ number }) => number).join(', ');
+    const { seenIndexes = [] } = this.state;
+    return seenIndexes.map(({ number }) => number).join(', ');
   }
 
   renderValues() {
     const entries = [];
+    const { values = [] } = this.state;
 
-    for (let key in this.state.values) {
+    for (let key in values) {
       entries.push(
         <div key={key}>
           For index {key} I calculated {this.state.values[key]}
